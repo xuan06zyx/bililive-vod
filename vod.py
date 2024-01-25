@@ -97,7 +97,8 @@ while True:
                 # 设置音量
                 pygame.mixer.music.set_volume(0.3)
                 # 按下快捷键暂停外部音乐播放
-                pyautogui.hotkey(str(hotkey_start))
+                # pyautogui.hotkey('ctrl', 'alt', 'p')
+                pyautogui.hotkey(hotkey_start)
                 print('(已暂停外部音乐播放...)')
                 # 播放音乐
                 pygame.mixer.music.play()
@@ -107,7 +108,8 @@ while True:
                 # 卸载音乐文件
                 pygame.mixer.music.unload()
                 # 音乐播放完毕后, 按下快捷键恢复外部音乐播放
-                pyautogui.hotkey(str(hotkey_next))
+                # pyautogui.hotkey('ctrl', 'alt', 'right')
+                pyautogui.hotkey(hotkey_next)
                 print('(已恢复外部音乐播放...)')
         else:
             print("(目前还没有新弹幕)")
