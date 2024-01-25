@@ -21,9 +21,9 @@
 
 1. 安装[Python 3.11](https://www.python.org/downloads/release/python-3113/) (其他版本安装依赖项时可能会出现问题)
 2. 安装本软件:
-   
    ```shell
-   git clone https://github.com/xuan06zyx/Bililive-Vod.git
+   git clone https://github.com/xuan06zyx/bililive-vod.git
+   cd bililive-vod
    ```
 3. 如果您是第一次运行本软件，还请先打开vod.py文件，在修改开头的配置参数(如下)：
    ```text
@@ -34,12 +34,9 @@
    # 外部音乐播放器下一首快捷键(可以跟暂停键一样)
    hotkey_next = 'ctrl', 'alt', 'right'
    ```
-4. 解压文件，并进入文件夹
-5. 复制文件夹路径
-6. 右键开始菜单(win + x)，选择`终端管理员`，输入`cd 刚刚复制的路径`
-7. 国内用户可以输入`pip config set global.index-url `设置国内pip源
-8. 输入`pip install -r requirements.txt`安装依赖
-9. 输入`Python vod.py`运行本软件
+4. 国内用户可以输入`pip config set global.index-url https://mirrors.aliyun.com/pypi/simple` 设置国内pip源
+5. 输入`pip install -r requirements.txt`安装依赖
+6. 输入`Python vod.py`运行本软件
 
 ## 问题反馈
 
