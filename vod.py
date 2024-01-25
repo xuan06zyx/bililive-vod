@@ -7,7 +7,7 @@ import pygame
 import pyautogui
 
 # 直播间ID
-roomid = '24005882'
+roomid = 'your_roomid'
 # 外部音乐播放器暂停快捷键
 hotkey_start = 'ctrl', 'alt', 'p'
 # 外部音乐播放器下一首快捷键(可以跟暂停键一样)
