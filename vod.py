@@ -7,7 +7,7 @@ import pygame
 import pyautogui
 
 # 直播间ID
-roomid = 'your-roomid'
+roomid = '24005882'
 # 外部音乐播放器暂停快捷键
 hotkey_start = 'ctrl', 'alt', 'p'
 # 外部音乐播放器下一首快捷键(可以跟暂停键一样)
@@ -44,7 +44,7 @@ while True:
             # 点歌功能
             # 匹配点歌关键词
             if '点歌' in text_list[-1]:
-                song_name = re.search(r'^[点點]歌[ :：,，]+(.+)', text_list[-1]).group(1)
+                song_name = re.search(r'点歌\s*(.*)', text_list[-1]).group(1)
                 print('收到点歌请求:', song_name)
 
                 # 获取歌曲信息
