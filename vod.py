@@ -64,7 +64,7 @@ while True:
                 song_interval = qqmusic['data']['interval']
                 # 歌曲链接
                 song_url = qqmusic['data']['url']
-                # print('成功获取歌曲信息!歌曲链接:', song_url)
+                print('歌曲链接:', song_url)
 
                 # 下载歌曲
                 song_file_path = f'{song}.flac'
