@@ -28,7 +28,7 @@
    ```shell
    git clone https://github.com/xuan06zyx/bililive-vod.git
    cd bililive-vod
-   ```[README.md](..%2FStarRail_toolbox%2FStarRailAssistant-1.5.6%2FREADME.md)
+   ```
 4. 如果您是第一次运行本软件，还请先打开bililive-vod.py文件，在修改开头的配置参数(如下)：
    ```json
    {
