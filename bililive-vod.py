@@ -6,14 +6,22 @@ import requests
 import pyautogui
 import vlc
 
-# 直播间ID
-roomid = 'your_roomid'
-# 外部音乐播放器暂停快捷键
-hotkey_start = 'ctrl', 'alt', 'p'
-# 外部音乐播放器下一首快捷键(可以跟暂停键一样)
-hotkey_next = 'ctrl', 'alt', 'right'
-# 音量 0~100
-volume = 50
+# 读取配置文件
+with open('config.json', 'r', encoding='utf-8') as r:
+    config = json.loads(r.read())
+# 从配置文件获取直播间ID
+roomid = config['roomid']
+if roomid == 'your_roomid':
+    roomid = input('请输入您的直播间ID(音量等配置可以打开 config.json 修改):')
+    config['roomid'] = roomid
+    with open('config.json', 'w', encoding='utf-8') as w:
+        w.write(json.dumps(config))
+# 外部音乐播放器暂停快捷键(默认是 ctrl + alt + p)
+hotkey_stop = config['hotkey_stop']
+# 外部音乐播放器下一首快捷键(可以跟暂停键一样, 默认是 ctrl + alt + right)
+hotkey_next = config['hotkey_next']
+# 音量 0~100 (默认是 50)
+volume = config['volume']
 
 # 直播间地址(修改roomid即可)
 bilibili_url = f'https://api.live.bilibili.com/xlive/web-room/v1/dM/gethistory?roomid={roomid}&room_type=0'
@@ -113,7 +121,7 @@ def hk_next():
             # 设置音量
             player.audio_set_volume(volume)
             # 按下快捷键暂停外部音乐播放
-            pyautogui.hotkey(hotkey_start)
+            pyautogui.hotkey(hotkey_stop)
             print('(已暂停外部音乐播放...)')
             # 播放音乐
             player.play()

@@ -28,17 +28,15 @@
    ```shell
    git clone https://github.com/xuan06zyx/bililive-vod.git
    cd bililive-vod
-   ```
+   ```[README.md](..%2FStarRail_toolbox%2FStarRailAssistant-1.5.6%2FREADME.md)
 4. 如果您是第一次运行本软件，还请先打开bililive-vod.py文件，在修改开头的配置参数(如下)：
-   ```text
-   # 直播间ID
-   roomid = 'your_roomid'
-   # 外部音乐播放器暂停快捷键
-   hotkey_start = 'ctrl', 'alt', 'p'
-   # 外部音乐播放器下一首快捷键(可以跟暂停键一样)
-   hotkey_next = 'ctrl', 'alt', 'right'
-   # 音量 0~100
-   volume = 50
+   ```json
+   {
+   "roomid": "your_roomid", (请替换成您要监控的直播间ID)
+   "hotkey_stop": ["ctrl", "alt", "p"], (用于点歌时暂停外部音乐 没有或不需要可以不填)
+   "hotkey_next": ["ctrl", "alt", "right"], (可以设置跟暂停音乐一样的 那样是继续播放外部音乐而不是放下一首 没有或不需要可以不填)
+   "volume": 50
+   }
    ```
 5. 国内用户可以输入`pip config set global.index-url https://mirrors.aliyun.com/pypi/simple` 设置国内pip源
 6. 输入`pip install -r requirements.txt`安装依赖
@@ -51,7 +49,8 @@
 2. 国内用户可以加我[QQ](https://api.lolimi.cn/API/tzmp/api.php?qq=2015441509)
 
 ## 注意事项
-1. 建议先播放外部音乐播放器再启动本脚本
+1. 建议先开始播放外部音乐再启动本脚本, 否则在触发点歌功能时会启动外部音乐播放器导致同时播放
 2. 由于B站直播弹幕会有历史记录，如果历史记录中最新一条弹幕含有点歌会直接触发点歌功能
 3. 本软件目前仅支持QQ音乐, 不支持以歌名+歌手的形式搜索指定歌曲
+<br>
 ⭐**如果喜欢，点个star~**⭐
