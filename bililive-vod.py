@@ -68,7 +68,7 @@ def get_barrage():
 
 
 def play_music():
-    global last_song, song_url
+    global song_url, last_song
     while '点歌' in text_list[-1]:
         # 点歌功能
         # 匹配点歌关键词
@@ -82,6 +82,10 @@ def play_music():
         # 通过歌名判断是否是与上次播放的是同一首歌
         if song == last_song:
             continue
+        # 如果点歌机触发时有歌曲在播放, 先停止
+        if player.is_playing():
+            print('(当前有歌曲在播放, 停止)')
+            player.stop()
         # 歌手
         song_singer = qqmusic['data']['singer']
         # 专辑
@@ -96,9 +100,6 @@ def play_music():
         song_url = qqmusic['data']['url']
         # 留作下一次触发点歌使用
         last_song = song
-        # 如果点歌机触发时有歌曲在播放, 先停止
-        if player.is_playing():
-            player.stop()
         print('收到点歌请求:', song_name)
         print('\n歌名:', song,
               '\n歌手:', song_singer,
@@ -126,14 +127,15 @@ def hk_next():
             # 播放音乐
             player.play()
             time.sleep(1)
+            # 重置歌曲链接
+            song_url = None
             # 等待音乐播放完毕
             while player.is_playing():
                 time.sleep(1)
             # 按下快捷键恢复外部音乐播放
             pyautogui.hotkey(hotkey_next)
             print('(已恢复外部音乐播放...)')
-            song_url = None
-        time.sleep(0.8)
+        time.sleep(1)
 
 
 # 创建监听弹幕线程并启动
