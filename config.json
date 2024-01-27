@@ -1,5 +1,5 @@
 {"roomid": "your_roomid",
   "hotkey_stop": ["ctrl", "alt", "p"],
   "hotkey_next": ["ctrl", "alt", "right"],
-  "volume": 50
+  "volume": 80
 }
