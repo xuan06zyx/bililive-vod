@@ -23,7 +23,7 @@
 ## 使用说明
 
 1. 安装[Python 3.11](https://www.python.org/downloads/release/python-3113/) (其他版本安装依赖项时可能会出现问题)
-2. 安装[VLCforWindows](https://www.videolan.org/vlc/download-windows.html) (务必安装该脚本,否则将无法使用本项目)
+2. 安装[VLCforWindows](https://www.videolan.org/vlc/download-windows.html) (务必安装该应用,否则将无法使用本项目)
 3. 使用打包好的程序
    1. 下载[Release](https://github.com/xuan06zyx/bililive-vod/releases)中的最新版本压缩包解压双击Bililive-Vod.exe即可
 4. 源码运行：
