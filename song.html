@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌单</title>
+</head>
+<body>
+
+    <div id="songList" class="text"></div>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:8765');
+
+        socket.onopen = function() {
+                console.log('WebSocket is open now.');
+            };
+
+        socket.onmessage = function(event) {
+            // 定义原始的歌曲列表
+            const dataDisplay = document.getElementById('dataDisplay');
+            const songData = JSON.parse(event.data);
+            console.log(songData);
+
+            // 从数据中提取歌曲列表
+            const songs = songData["song_list"];
+
+            // 对歌曲列表进行排序
+            songs.sort();
+
+            // 创建用于显示排序后歌曲的字符串
+            let sortedSongs = "<ul>";
+            songs.forEach(function(song) {
+                sortedSongs += "<li>" + song + "</li>";
+            });
+            sortedSongs += "</ul>";
+
+            // 将排序后的歌曲列表显示在页面上
+            document.getElementById("songList").innerHTML = sortedSongs;
+        };
+    </script>
+</body>
+
+<style>
+    .text{
+        font-size: 32px;
+        color: #83a6af;
+    }
+</style>
+
+</html>
