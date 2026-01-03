@@ -18,5 +18,5 @@ python-vlc==3.0.20123
 pytweening==1.0.7
 pywin32-ctypes==0.2.2
 requests==2.31.0
-urllib3==2.1.0
+urllib3==2.6.0
 websockets==12.0
